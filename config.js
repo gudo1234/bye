@@ -56,9 +56,9 @@ global.numcreador = '584120346669'
 global.moneda = 'Yenes'
 global.welcom1 = 'Edita Con #setwelcome'
 global.welcom2 = 'Edita Con #setbye'
-global.banner = 'https://qu.ax/EioUB.jpg'
-global.catalogo = 'https://qu.ax/huPVz.jpg'
-global.test = 'https://qu.ax/osBAf.jpg'
+global.banner = 'https://tinyurl.com/27d7rnhu'
+global.catalogo = 'https://tinyurl.com/25ru293g'
+global.test = 'https://tinyurl.com/25ru293g'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
