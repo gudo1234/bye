@@ -104,7 +104,8 @@
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
 "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
-"@nechlophomeriaa/spotifydl": "^1.0.29"
+"@nechlophomeriaa/spotifydl": "^1.0.29",
+"boxen": "^7.1.1"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",
