@@ -107,7 +107,7 @@
 "@nechlophomeriaa/spotifydl": "^1.0.29",
 "boxen": "^7.1.1",
 "groq-sdk": "latest",
-"sharp": "^0.30.0"
+"sharp": "*"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",
