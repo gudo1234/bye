@@ -106,8 +106,7 @@
 "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
 "@nechlophomeriaa/spotifydl": "^1.0.29",
 "boxen": "^7.1.1",
-"groq-sdk": "latest",
-"sharp": "*"
+"groq-sdk": "latest"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",
