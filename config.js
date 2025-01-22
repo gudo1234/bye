@@ -47,7 +47,7 @@ global.packsticker2 = `━━━━━━━━♾\n➲౽໋ⲉⷡυⷪ᥉֧ⷮ
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.packname = `➲౽໋ⲉⷡυⷪ᥉ࣰ֧ⷮ✰᮫݄݃🪴`
-global.botname = 'ꪃꒉܻᵃₚͬ៰⍳'
+global.botname = '➲౽໋ⲉⷡυⷪ᥉ࣰ֧ⷮ✰᮫݄݃🪴'
 global.wm = '➲౽໋ⲉⷡυⷪ᥉ࣰ֧ⷮ✰᮫݄݃🪴'
 global.author = 'Made By - ꪃꒉܻᵃₚͬ៰⍳'
 global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ ꪃꒉܻᵃₚͬ៰⍳'
