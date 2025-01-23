@@ -3,8 +3,8 @@
 
 import fs from 'fs';
 
-const directoryPath = `./${JadiBots}/`;
-const sanSessionPath = `./${Sessions}/`;
+const directoryPath = `./${jadi}/`;
+const sanSessionPath = `./${sessions}/`;
 
 function cleanSubbotDirectories() {
   fs.readdir(directoryPath, (err, subbotDirs) => {
@@ -48,7 +48,7 @@ function cleanSessionFiles() {
           if (err && err.code !== 'ENOENT') {
             console.log(`Error al eliminar Session: ${file}: ` + err);
           } else {
-            console.log(`Session: ${file} elimiando.`);
+            //console.log(`Session: ${file} elimiando.`);
           }
         });
       }
