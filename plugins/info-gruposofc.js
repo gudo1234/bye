@@ -7,7 +7,7 @@ let grupos = `${e} *Hola!, te invito a unirte a los grupos oficiales del Bot par
 - ${namegrupo}
 *❀* ${gp2}
 
-- ꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳
+- ${namechannel3}
 *❀* ${gp1}
 
 - ${namecomu}
