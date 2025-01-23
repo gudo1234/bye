@@ -39,6 +39,7 @@ global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/50492280729'
 global.namechannel = 'Zeus Bot🔆Channel-OFC'
 global.namechannel2 = 'Zeus Bot🌠Test-Channel'
+global.namechannel2 = '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳'
 global.namegrupo = '➲౽໋ⲉⷡυⷪ᥉ࣰ֧ⷮ✰᮫݄݃🪴'
 global.namecomu = '𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪 & ➲౽໋ⲉⷡυⷪ᥉ࣰ֧ⷮ✰᮫݄݃🪴'
 global.listo = '🍬 *Aquí tienes ฅ^•ﻌ•^ฅ*'
