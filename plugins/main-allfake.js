@@ -48,8 +48,8 @@ global.colab3 = 'ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚ�
 
 //Ids channel
 global.idchannel = '120363395205399025@newsletter'
-global.canalIdM = ["120363395205399025@newsletter", "120363393456282459@newsletter"]
-global.canalNombreM = ["Zeus Bot🔆Channel-OFC", "Zeus Bot🌠Test-Channel"]
+global.canalIdM = ["120363395205399025@newsletter", "120363393456282459@newsletter", "120363285614743024@newsletter"]
+global.canalNombreM = ["Zeus Bot🔆Channel-OFC", "Zeus Bot🌠Test-Channel", "꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳"]
 global.channelRD = await getRandomChannel()
 
 //fechas
@@ -82,11 +82,12 @@ global.waitttt = `${e} Espera un momento, soy lenta...`;
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029Vb3os7zEFeXtsN5swC44'  
 let canal2 = 'https://whatsapp.com/channel/0029Vb48HGCAjPXP9Tbj1l0D'
+let canal3 = 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H'
 var git = 'https://github.com/edar123'
 var github = 'https://github.com/edar123' 
 let correo = 'izumilitee@gmail.com'
 
-global.redes = [canal, canal2, git, github, correo].getRandom()
+global.redes = [canal, canal2, canal3, git, github, correo].getRandom()
 
 //Imagen
 let category = "imagen"
