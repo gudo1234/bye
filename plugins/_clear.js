@@ -48,7 +48,7 @@ function cleanSessionFiles() {
           if (err && err.code !== 'ENOENT') {
             console.log(`Error al eliminar Session: ${file}: ` + err);
           } else {
-            console.log(`Session: ${file} elimiando.`);
+            //console.log(`Session: ${file} elimiando.`);
           }
         });
       }
