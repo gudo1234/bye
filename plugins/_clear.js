@@ -26,7 +26,7 @@ function cleanSubbotDirectories() {
               if (err && err.code !== 'ENOENT') {
                 console.log(`Error al eliminar JadiBot: ${file}: ` + err);
               } else {
-                console.log(`JadiBot: ${file} eliminado.`);
+                //console.log(`JadiBot: ${file} eliminado.`);
               }
             });
           }
