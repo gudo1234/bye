@@ -93,6 +93,7 @@ global.gp2 = 'https://chat.whatsapp.com/BDlIBKPJIdw9E4Tirf0HGH'
 global.comunidad1 = 'https://chat.whatsapp.com/HHDvYPActKSDNgMB8bBJ9G'
 global.channel = 'https://whatsapp.com/channel/0029Vb3os7zEFeXtsN5swC44'
 global.channel2 = 'https://whatsapp.com/channel/0029Vb48HGCAjPXP9Tbj1l0D'
+global.channel3 = 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H'
 global.md = 'https://github.com/edar123'
 global.correo = 'izumilitee@gmail.com'
 global.cn ='https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T';
