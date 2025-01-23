@@ -17,7 +17,7 @@ if (!img) return conn.reply(m.chat, `🍬 Por favor, envia una imagen o video pa
 
 let out
 try {
-stiker = await sticker(img, false, global.packsticker, global.packsticker2)
+stiker = await sticker(img, false, ${m.pushName})
 } catch (e) {
 console.error(e)
 } finally {
@@ -26,7 +26,7 @@ if (/webp/g.test(mime)) out = await webp2png(img)
 else if (/image/g.test(mime)) out = await uploadImage(img)
 else if (/video/g.test(mime)) out = await uploadFile(img)
 if (typeof out !== 'string') out = await uploadImage(img)
-stiker = await sticker(false, out, global.packsticker, global.author)
+stiker = await sticker(false, out, ${m.pushName})
 }}
 } else if (args[0]) {
 if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packsticker, global.author)
