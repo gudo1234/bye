@@ -67,10 +67,10 @@ resultado += segundos + " segundos";
 }
 return resultado;
 }
-const message = users.map((v, index) => `❐${index + 1}\n📎 Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}\n👤 Usuario: ${v.user.name || 'Sub-Bot'}\n🕑 Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n__________________________\n\n');
+const message = users.map((v, index) => `❲${index + 1}❳\n⚡ Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}\n👤 Usuario: ${v.user.name || 'Sub-Bot'}\n🕑 Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n__________________________\n');
 const replyMessage = message.length === 0 ? `No hay Sub-Bots disponible por el momento, verifique mas tarde.` : message;
 const totalUsers = users.length;
-const responseMessage = `${e} Lista de *JadiBots* activos, un total de: *${totalUsers || '0'}*\n🤖 *Bot Principal* wa.me/${global.conn.user.jid.split`@`[0]}?text=.serbot+--code\n\n${replyMessage.trim()}`.trim();
+const responseMessage = `${e} Lista de *JadiBots* activos, un total de: *${totalUsers || '0'}*\n🤖 *Bot Principal* wa.me/${global.conn.user.jid.split`@`[0]}?text=.serbot+--code\n__________________________\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break   
 }}
