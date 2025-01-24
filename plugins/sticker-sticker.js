@@ -10,14 +10,16 @@ try {
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (/webp|image|video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 15) return m.reply(`${e} ¡El video no puede durar más de 15 segundos!...`)
+if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return m.reply(`¡El video no puede durar mas de 8 segundos!`)
 let img = await q.download?.()
 
 if (!img) return conn.reply(m.chat, `${e} Por favor, envia una imagen o video para hacer un sticker.`, m, rcanal)
 
+
 let out
+m.react('🧩')
 try {
-stiker = await sticker(img, false, global.packsticker, global.packsticker2)
+stiker = await sticker(img, false, `${m.pushName}`)
 } catch (e) {
 console.error(e)
 } finally {
@@ -26,21 +28,22 @@ if (/webp/g.test(mime)) out = await webp2png(img)
 else if (/image/g.test(mime)) out = await uploadImage(img)
 else if (/video/g.test(mime)) out = await uploadFile(img)
 if (typeof out !== 'string') out = await uploadImage(img)
-stiker = await sticker(false, out, global.packsticker, global.author)
+stiker = await sticker(false, out, `${m.pushName}`)
 }}
 } else if (args[0]) {
-if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packsticker, global.author)
+if (isUrl(args[0])) stiker = await sticker(false, args[0], `${m.pushName}`)
 
-else return m.reply(`${e} El url es incorrecto...`)
+else return m.reply(`${e} El url es incorrecto`)
 
 }
 } catch (e) {
 console.error(e)
 if (!stiker) stiker = e
 } finally {
-if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: dev, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m })
+if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `${m.pushName}`, body: dev, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m })
 
 else return conn.reply(m.chat, `${e} Por favor, envia una imagen o video para hacer un sticker.`, m, rcanal)
+
 
 
 }}
