@@ -575,15 +575,15 @@ let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 const msg = {
-rowner: `${e} El comando *${comando}* solo puede ser usado por el desarrollador del bot.`, 
-owner: `${e} El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `${e} El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
-premium: `${e} El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
-group: `${e} El comando *${comando}* solo puede ser usado en grupos.\n\n[✓] *Únete a nuestra comunidad:*\n${comunidad1}`,
-private: `${e} El comando *${comando}* solo puede ser usado al chat privado del bot.`,
-admin: `${e} El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `${e} Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
-unreg: `${e} El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
+rowner: `${e} El comando *(${comando})* solo puede ser usado por el desarrollador del bot.`, 
+owner: `${e} El comando *(${comando})* solo puede ser usado por los desarrolladores del bot.`, 
+mods: `${e} El comando *(${comando})* solo puede ser usado por los moderadores del bot.`, 
+premium: `${e} El comando *(${comando})* solo puede ser usado por los usuarios premium.`, 
+group: `${e} El comando *(${comando})* solo puede ser usado en grupos.\n\n[✓] *Únete a nuestra comunidad:*\n${comunidad1}`,
+private: `${e} El comando *(${comando})* solo puede ser usado al chat privado del bot.`,
+admin: `${e} El comando *(${comando})* solo puede ser usado por los administradores del grupo.`, 
+botAdmin: `${e} Para ejecutar el comando *(${comando})* debo ser administrador del grupo.`,
+unreg: `${e} El comando *(${comando})* solo puede ser usado por los usuarios registrados, registrate usando:\n> ✎ #${verifyaleatorio} ${user2}.${edadaleatoria}`,
 restrict: `${e} Esta caracteristica está desactivada.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
