@@ -1,6 +1,6 @@
 var handler = async (m, { conn, participants, usedPrefix, command }) => {
     if (!m.mentionedJid[0] && !m.quoted) {
-        return conn.reply(m.chat, `${e} *Ejemplo:* ${usedPrefix + command} @${m.pushName}`, m);
+        return conn.reply(m.chat, `${e} *Debe mencionar o responder al mensaje de un usuario para eliminarlo.*`, m);
     }
 
     let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;
