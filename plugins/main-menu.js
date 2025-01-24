@@ -10,16 +10,19 @@ let handler = async (m, { conn, args }) => {
   let role = user.role || 'Sin Rango';
 
   let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
-
+let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+  let paisdata = delirius.data.result
+  let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
   let txt = `
 һ᥆ᥣᥲ! s᥆ᥡ  *${botname}*  ٩(˘◡˘)۶
 ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s
 ╭┈ ↷
-│☁️ Cliente » @${userId.split('@')[0]}
+│☁️ *Cliente* » @${userId.split('@')[0]}
+│🌎 *Pais* » ${mundo}
 │💸 ${moneda} » ${coins}
-│✨ Experiencia » ${exp.toLocaleString()}
-│🌟 Nivel » ${nivel}
-│⚜️ Rango » ${role}
+│✨ *Experiencia* » ${exp.toLocaleString()}
+│🌟 *Nivel* » ${nivel}
+│⚜️ *Rango* » ${role}
 │${dev}
 ╰─────────────────
 ᥴrᥱᥲ ᥙᥒ sᥙᑲ-ᑲ᥆𝗍 ᥴ᥆ᥒ 𝗍ᥙ ᥒúmᥱr᥆ ᥙ𝗍іᥣіzᥲᥒძ᥆ *#serbot* o *#serbot code*
