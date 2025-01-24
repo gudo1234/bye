@@ -528,5 +528,5 @@ ${e} Comandos NSFW (Contenido para adultos)
 handler.help = ['menu'];
 handler.tags = ['main'];
 handler.command = ['menu', 'menú', 'help', 'ayuda', 'comandos', 'memu'];
-handler.group = true
+//handler.group = true
 export default handler;
