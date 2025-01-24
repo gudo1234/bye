@@ -22,8 +22,7 @@ let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country
 │💸 ${moneda} » ${coins}
 │✨ *Experiencia* » ${exp.toLocaleString()}
 │🌟 *Nivel* » ${nivel}
-│⚜️ *Rango* » ${role}
-│${dev}
+│⚜️ Rango » ${role}
 ╰─────────────────
 ᥴrᥱᥲ ᥙᥒ sᥙᑲ-ᑲ᥆𝗍 ᥴ᥆ᥒ 𝗍ᥙ ᥒúmᥱr᥆ ᥙ𝗍іᥣіzᥲᥒძ᥆ *#serbot* o *#serbot code*
 
