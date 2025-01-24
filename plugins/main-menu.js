@@ -513,7 +513,7 @@ ${e} Comandos NSFW (Contenido para adultos)
           externalAdReply: {
               title: botname,
               body: textbot,
-              thumbnailUrl: banner,
+              thumbnailUrl: im.getRandom(),
               mediaType: 1,
               showAdAttribution: true,
               renderLargerThumbnail: true,
@@ -525,6 +525,6 @@ ${e} Comandos NSFW (Contenido para adultos)
 
 handler.help = ['menu'];
 handler.tags = ['main'];
-handler.command = ['menu', 'menú', 'help', 'ayuda', 'comandos'];
+handler.command = ['menu', 'menú', 'help', 'ayuda', 'comandos', 'memu'];
 handler.group = true
 export default handler;
