@@ -481,7 +481,7 @@ ${e} Comandos NSFW (Contenido para adultos)
 > ✦ Follarte a alguien
 ᰔᩚ *#cafe • #coffe*
 > ✦ Tomate un cafecito con alguien
-ᰔᩚ *#violar • #perra + <mencion>
+ᰔᩚ *#violar • #perra* + <mencion>
 > ✦ Viola a alguien
 ᰔᩚ *#grabboobs* + <mencion>
 > ✦ Agarrrar tetas
