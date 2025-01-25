@@ -1,4 +1,4 @@
-/*import { WAMessageStubType } from '@whiskeysockets/baileys'
+import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -7,7 +7,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let who = m.messageStubParameters[0]
   let taguser = `@${who.split('@')[0]}`
   let chat = global.db.data.chats[m.chat]
-  let defaultImage = 'https://files.catbox.moe/xr2m6u.jpg';
+  let defaultImage = im.getRandom();
 
   if (chat.welcome) {
     let img;
@@ -19,18 +19,18 @@ export async function before(m, { conn, participants, groupMetadata }) {
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
-      let bienvenida = `${e} *Bienvenido* a ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ⊹Puedes usar *#menu* para ver la lista de comandos.`
+      let bienvenida = `${e} *Bienvenido* a ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✎ Puedes usar *#help* para ver la lista de comandos.`
       await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
     } else if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE || m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
-      let bye = `${e} *Adiós* De ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ⊹Puedes usar *#menu* para ver la lista de comandos.`
+      let bye = `${e} *Adiós* De ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ✎ Puedes usar *#help* para ver la lista de comandos.`
       await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
     }
   }
 
   return true
-}*/
+}
 
-import { WAMessageStubType } from '@whiskeysockets/baileys';
+/*import { WAMessageStubType } from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
 
@@ -101,4 +101,4 @@ await conn.sendMessage(m.chat, {
       },
   }, { quoted: null });
   };
-};
+};*/
