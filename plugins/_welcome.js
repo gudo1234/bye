@@ -19,7 +19,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     }
 
     if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
-      let bienvenida = `${e} *Bienvenido* a ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✎ Puedes usar *#help* para ver la lista de comandos.`
+      let bienvenida = `${e} *Bienvenido* ${taguser}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✎ Puedes usar *#help* para ver la lista de comandos.`
       await conn.sendMessage(m.chat, {
       text: bienvenida,
       contextInfo: {
@@ -32,7 +32,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
           },
           forwardingScore: 999,
           externalAdReply: {
-              title: 'Bienvenido a',
+              title: '✰Bienvenido a',
               body: `${groupMetadata.subject}`,
               thumbnailUrl: img,
               thumbnail: img,
