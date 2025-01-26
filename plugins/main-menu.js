@@ -20,7 +20,7 @@ let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country
 ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s
 ╭┈ ↷
 │☁️ *Cliente* » @${userId.split('@')[0]}
-│🌎 *Pais* » ${mundo} (${getDevice(m.key.id)})
+│🌎 *Pais* » ${mundo} ${getDevice(m.key.id)}
 │💸 ${moneda} » ${coins}
 │✨ *Experiencia* » ${exp.toLocaleString()}
 │🌟 *Nivel* » ${nivel}
