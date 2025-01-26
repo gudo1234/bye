@@ -60,7 +60,9 @@ global.welcom2 = 'Edita Con #setbye'
 global.banner = 'https://qu.ax/kmqnn.jpg'
 global.catalogo = 'https://qu.ax/XveUk.jpg'
 global.test = 'https://qu.ax/Bwxqw.jpg'
-global.im = [banner, catalogo, test]
+global.test2 = 'https://qu.ax/yLyGb.jpg'
+global.test3 = 'https://qu.ax/GufHd.jpg'
+global.im = [banner, catalogo, test, test2, test3]
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
