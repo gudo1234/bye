@@ -20,7 +20,11 @@ let handler = async (m, { conn }) => {
 
     // Descargamos el contenido del mensaje
     let media = await downloadContentFromMessage(viewOnceMsg, type === 'imageMessage' ? 'image' : 'video');
-    let buffer = Buffer.concat(await Promise.all([...media]));
+    let buffer = Buffer.from([]);
+
+    for await (const chunk of media) {
+        buffer = Buffer.concat([buffer, chunk]);
+    }
 
     // Enviamos el archivo
     if (/video/.test(type)) {
