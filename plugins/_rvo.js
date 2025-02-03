@@ -6,7 +6,7 @@ let handler = async (m, { conn }) => {
     // Verificamos si el mensaje citado es un ViewOnce
     let quotedMsg = m.quoted.message;
     if (!quotedMsg || !quotedMsg.viewOnceMessage) {
-        return conn.reply(m.chat, `⚠️ Responde a una imagen o video ViewOnce.`, m);
+        return conn.reply(m.chat, `Responde a una imagen o video ViewOnce.`, m);
     }
 
     // Obtenemos el tipo de mensaje
@@ -14,7 +14,7 @@ let handler = async (m, { conn }) => {
 
     // Asegúrate de que el tipo sea correcto
     if (!['imageMessage', 'videoMessage'].includes(type)) {
-        return conn.reply(m.chat, `⚠️ El mensaje no es una imagen o video ViewOnce.`, m);
+        return conn.reply(m.chat, `El mensaje no es una imagen o video ViewOnce.`, m);
     }
 
     // Descargamos el contenido del mensaje
