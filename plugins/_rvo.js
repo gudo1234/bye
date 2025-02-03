@@ -9,24 +9,23 @@ let handler = async (m, { conn }) => {
         return conn.reply(m.chat, `⚠️ Responde a una imagen o video ViewOnce.`, m);
     }
 
-    let type = Object.keys(quotedMsg)[0];
+    // Obtenemos el tipo de mensaje
+    let type = Object.keys(quotedMsg.viewOnceMessage)[0];
 
     // Asegúrate de que el tipo sea correcto
     if (!['imageMessage', 'videoMessage'].includes(type)) {
         return conn.reply(m.chat, `⚠️ El mensaje no es una imagen o video ViewOnce.`, m);
     }
 
-    let media = await downloadContentFromMessage(quotedMsg[type].viewOnceMessage, type === 'imageMessage' ? 'image' : 'video');
-    let buffer = Buffer.from([]);
+    // Descargamos el contenido del mensaje
+    let media = await downloadContentFromMessage(quotedMsg.viewOnceMessage, type === 'imageMessage' ? 'image' : 'video');
+    let buffer = Buffer.concat(await Promise.all([...media]));
 
-    for await (const chunk of media) {
-        buffer = Buffer.concat([buffer, chunk]);
-    }
-
+    // Enviamos el archivo
     if (/video/.test(type)) {
-        return conn.sendFile(m.chat, buffer, 'media.mp4', quotedMsg[type].caption || '', m, null);
+        return conn.sendFile(m.chat, buffer, 'media.mp4', quotedMsg.viewOnceMessage[type].caption || '', m, null);
     } else if (/image/.test(type)) {
-        return conn.sendFile(m.chat, buffer, 'media.jpg', quotedMsg[type].caption || '', m, null);
+        return conn.sendFile(m.chat, buffer, 'media.jpg', quotedMsg.viewOnceMessage[type].caption || '', m, null);
     }
 }
 
