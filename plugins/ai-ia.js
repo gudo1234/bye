@@ -4,46 +4,45 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 const isQuotedImage = m.quoted && (m.quoted.msg || m.quoted).mimetype && (m.quoted.msg || m.quoted).mimetype.startsWith('image/')
 const username = `${conn.getName(m.sender)}`
-const basePrompt = `Tu nombre es ${botname} y parece haber sido creada por ${packname}. Tu versión actual es 2.1.5, Tú usas el idioma Español. Llamarás a las personas por su nombre ${username}, te gusta ser divertida, y te encanta aprender. Lo más importante es que debes ser amigable con la persona con la que estás hablando. ${username}`
+const basePrompt = `Tu nombre es ${wm} y parece haber sido creado por ${author}. Tú usas el idioma Español. Llamarás a las personas por su nombre ${username}, te gusta hacer bromas a la gente y odias estar sentada sin hacer nada. Lo más importante es que debes ser amigable con la persona con la que estás hablando. ${username}`
 if (isQuotedImage) {
 const q = m.quoted
 const img = await q.download?.()
 if (!img) {
-console.error('⚠️ Error: No image buffer available')
-return conn.reply(m.chat, ,`${e} ChatGpT no pudo descargar la imagen.`, m, fake)}
-const content = `${e} ¿Qué se observa en la imagen?`
+console.error('🔥Error: No image buffer available')
+return conn.reply(m.chat, '❤️‍🔥 Error: No se pudo descargar la imagen.', m, fake)}
+const content = '¿Qué se observa en la imagen?'
 try {
 const imageAnalysis = await fetchImageBuffer(content, img)
-const query = `${e}  Descríbeme la imagen y detalla por qué actúan así. También dime quién eres`
-const prompt = `${e} ${basePrompt}. La imagen que se analiza es: ${imageAnalysis.result}`
+const query = '❤️‍🔥Descríbeme la imagen y detalla por qué actúan así. También dime quién eres'
+const prompt = `${basePrompt}. La imagen que se analiza es: ${imageAnalysis.result}`
 const description = await luminsesi(query, username, prompt)
 await conn.reply(m.chat, description, m, fake)
-} catch {
-await m.react(error)
-await conn.reply(m.chat, `${e} ChatGpT no pudo analizar la imagen.`, m, fake)}
+} catch (error) {
+console.error('🔥 Error al analizar la imagen:', error)
+await conn.reply(m.chat, '🦋 Error al analizar la imagen.', m, fake)}
 } else {
-if (!text) { return conn.reply(m.chat, `${e} Ingrese una petición para que el ChatGpT lo responda.`, m)}
-await m.react(rwait)
+if (!text) { return conn.reply(m.chat, `${e} *Ejemplo:* ${usedPrefix + command} que es un bot`, m, rcanal)}
+await m.react('💬')
 try {
-const { key } = await conn.sendMessage(m.chat, {text: `${e} ChatGPT está procesando tu petición, espera unos segundos.`}, {quoted: m})
 const query = text
-const prompt = `${e} ${basePrompt}. Responde lo siguiente: ${query}`
+const prompt = `${basePrompt}. Responde lo siguiente: ${query}`
 const response = await luminsesi(query, username, prompt)
-await conn.sendMessage(m.chat, {text: response, edit: key})
-await m.react(done)
-} catch {
-await m.react(error)
-await conn.reply(m.chat, `${e} ChatGpT no puede responder a esa pregunta.', m, fake)}}}
 
-handler.help = ['ia', 'chatgpt']
+await conn.reply(m.chat, response, m, fake)
+} catch (error) {
+console.error('Error al obtener la respuesta:', error)
+await conn.reply(m.chat, 'Error: intenta más tarde.', m, fake)}}}
+
+handler.help = ['chatgpt <texto>', 'ia <texto>']
 handler.tags = ['ai']
-handler.register = true
-handler.command = ['ia', 'chatgpt']
-handler.group = true
+//handler.group = true;
+handler.register = false
+
+// handler.estrellas = 1
+handler.command = ['ia', 'chatgpt', 'izumi']
 
 export default handler
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Función para enviar una imagen y obtener el análisis
 async function fetchImageBuffer(content, imageBuffer) {
@@ -62,6 +61,7 @@ throw error }}
 // Función para interactuar con la IA usando prompts
 async function luminsesi(q, username, logic) {
 try {
+
 const response = await axios.post("https://Luminai.my.id", {
 content: q,
 user: username,
@@ -70,5 +70,5 @@ webSearchMode: false
 })
 return response.data.result
 } catch (error) {
-console.error(`${e} ⚠️ Error al obtener:`, error)
+console.error('🚩 Error al obtener:', error)
 throw error }}
