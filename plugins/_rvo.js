@@ -1,41 +1,39 @@
-let { downloadContentFromMessage } = (await import('@whiskeysockets/baileys'));
+const utils = new(require("#utils"));
+const baileys = require("@adiwajshing/baileys");
 
-let handler = async (m, { conn }) => {
-    if (!m.quoted) return conn.reply(m.chat, `⚠️ Responde a un mensaje que quieras reenviar como ViewOnce.`, m);
+let handler = async (m, { conn, args, usedPrefix, command }) => {
 
-    // Verificamos si el mensaje citado es un ViewOnce
-    let quotedMsg = m.quoted.message;
-    if (!quotedMsg) {
-        return conn.reply(m.chat, `⚠️ El mensaje citado no es válido.`, m);
+        try {
+            if (!m.quoted) {
+                return m.reply(`${e} Responde a un mensaje de una vista junto al mismo comando.`);
+            }
+            if (m.quoted.type === "viewOnceMessage" || m.quoted.type == "viewOnceMessageV2" || m.quoted.viewOnce == true) {
+                let message = m.quoted
+                let generateMessage = baileys.proto.WebMessageInfo.fromObject({
+                    key: message.key,
+                    message: {
+                        [m.quoted.type]: message
+                    }
+                });
+                delete generateMessage.message[Object.keys(generateMessage.message)[0]].viewOnce
+                generateMessage.message[Object.keys(generateMessage.message)[0]].contextInfo = {
+                    mentionedJid: utils.mention(message?.body) || null
+                }
+                const response = baileys.generateWAMessageFromContent(m.chat, generateMessage.message, {
+                    userJid: conn.user.jid,
+                    quoted: m
+                })
+                return conn.relayMessage(m.chat, response.message, {
+                    messageId: response.key.id
+                })
+            } else {
+                return m.reply(`${e} Este no es un mensaje de una vista.`);
+            }
+        } catch (err) {
+            return m.reply(`${e} error`)
+        }
     }
 
-    let type = Object.keys(quotedMsg)[0];
-
-    // Asegúrate de que el tipo sea correcto
-    if (!['imageMessage', 'videoMessage', 'audioMessage'].includes(type)) {
-        return conn.reply(m.chat, `⚠️ Solo se pueden reenviar imágenes, videos o audios como ViewOnce.`, m);
-    }
-
-    // Descargamos el contenido del mensaje
-    let media = await downloadContentFromMessage(quotedMsg[type], type === 'imageMessage' ? 'image' : type === 'videoMessage' ? 'video' : 'audio');
-    let buffer = Buffer.from([]);
-
-    for await (const chunk of media) {
-        buffer = Buffer.concat([buffer, chunk]);
-    }
-
-    // Enviamos el archivo como ViewOnce
-    await conn.sendMessage(m.chat, {
-        [type]: {
-            ...quotedMsg[type],
-            viewOnce: true,
-        },
-        caption: quotedMsg[type].caption || ''
-    }, { quoted: m });
-
-    return conn.reply(m.chat, `✅ Mensaje reenviado como ViewOnce.`, m);
-}
-
-handler.command = ['readviewonce', 'read', 'ver', 'readvo', 'ewonce', 'rvo', 'view'];
-
-export default handler;
+handler.command = ['rvo']
+//handler.group = true
+export default handler
