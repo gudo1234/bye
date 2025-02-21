@@ -1,26 +1,44 @@
-import { makeWASocket } from '@whiskeysockets/baileys';
+import jimp from "jimp"
+import { S_WHATSAPP_NET } from '@whiskeysockets/baileys'
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-  let q = m.quoted ? m.quoted : m;
-  let mime = (q.msg || q).mimetype || q.mediaType || '';
-
-  if (/image/.test(mime)) {
-    let img = await q.download();
-    if (!img) return m.reply(`${e} Te faltó la imagen para el perfil del grupo.`);
-
-    try {
-      await conn.updateProfilePicture(m.chat, img);
-      m.reply(`${e} Perfecto.`);
-      m.react(done)
-    } catch (e) {
-      m.reply(`︎${e} *Error:* ${e.message}`);
+let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
+  try {
+    let groupId = m.chat;
+    let quotedMsg = m.quoted ? m.quoted : m
+    if (!m.quoted) return m.reply(`${e} *Responde a una Imagen.*`)
+    let mediaType = (quotedMsg.type || quotedMsg).mimetype || '';
+    var media = await quotedMsg.download();
+    async function processImage(media) {
+      const image = await jimp.read(media);
+      const resizedImage = image.getWidth() > image.getHeight() ? image.resize(720, jimp.AUTO) : image.resize(jimp.AUTO, 720);
+      return {
+        img: await resizedImage.getBufferAsync(jimp.MIME_JPEG),
+      };
     }
-  } else {
-    return m.reply(`${e} Te faltó la imagen para cambiar el perfil del grupo.`);
+    var { img: processedImage } = await processImage(media);
+    conn.query({
+                tag: 'iq',
+                attrs: {
+                    target: groupId,
+                    to: S_WHATSAPP_NET,
+                    type:'set',
+                    xmlns: 'w:profile:picture'
+                },
+                content: [
+                    {
+                        tag: 'picture',
+                        attrs: { type: 'image' },
+                        content: processedImage
+                    }
+                ]
+            })
+  m.reply(`${e} *Imagen actualizada.*`);
+  } catch (error) {
+  return m.react('❌');
+
   }
 };
-
-handler.command = ['gpbanner', 'groupimg'];
+handler.command = ['gpbanner', 'groupimg', 'setppgc', 'setppgroup', 'icongc'];
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
