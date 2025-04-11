@@ -68,7 +68,7 @@
       throw "Comando no reconocido.";
     }
   } catch (error) {
-    return m.reply(`𓁏 *Error:* ${error.message}`);
+    return m.reply(`*Error:* ${error.message}`);
   }
 };
 
