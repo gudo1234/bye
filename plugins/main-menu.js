@@ -150,6 +150,8 @@ ${e} Comandos de descargas para varios archivos.
 ᰔᩚ *#npmdl • #npmdownloader*
 > ✦ Descarga paquetes de NPMJs.
 ᰔᩚ *#animelinks • #animedl*
+ᰔᩚ *#spotify*
+> ✦ Descarga música de Spotify.
 > ✦ Descarga Links disponibles de descargas.
 
 »  ⊹˚• \`Economia-rpg\` •˚⊹
